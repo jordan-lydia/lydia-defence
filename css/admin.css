@@ -1,0 +1,412 @@
+/* =============================================================================
+   Feuille de Style pour l'Interface d'Administration - STDM
+   Version : 1.2
+   Auteur: [Ton Nom]
+   ========================================================================== */
+
+/* --- VARIABLES GLOBALES (Palette de couleurs) --- */
+:root {
+    --admin-bg: #f0f2f5;           /* Arrière-plan principal de la page */
+    --content-bg: #ffffff;         /* Arrière-plan des blocs de contenu */
+    
+    --sidebar-bg: #111827;         /* Fond de la barre latérale */
+    --sidebar-active-bg: #1f2937;  /* Fond des éléments actifs/survolés */
+    --sidebar-text: #aeb1b8;       /* Couleur du texte normal de la sidebar */
+    --sidebar-text-hover: #ffffff; /* Couleur du texte survolé/actif */
+    --sidebar-title-text: #9ca3af; /* Couleur des titres de section */
+    
+    --primary-admin: #3b82f6;      /* Couleur d'accentuation principale (bleu) */
+    
+    --text-dark: #1f2937;          /* Texte principal (sombre) */
+    --text-muted: #6b7280;         /* Texte secondaire (gris) */
+
+    /* Couleurs pour les icônes de stats */
+    --color-primary-light: #dbeafe;
+    --color-success: #10b981;
+    --color-success-light: #d1fae5;
+    --color-danger: #ef4444;
+    --color-danger-light: #fee2e2;
+    --color-warning: #f59e0b;
+    --color-warning-light: #fef3c7;
+}
+
+/* --- STYLE DE BASE --- */
+body.admin-body {
+    background-color: var(--admin-bg);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+}
+
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   SIDEBAR (Menu de Navigation Latéral)
+   ========================================================================== */
+.sidebar {
+    width: 260px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-shrink: 0; /* Empêche le header de se réduire */
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sidebar-text-hover);
+    text-decoration: none;
+}
+
+.sidebar-logo i {
+    color: var(--primary-admin);
+    margin-right: 10px;
+}
+
+.sidebar-nav {
+    flex-grow: 1; /* Permet à la nav de prendre l'espace restant */
+    overflow-y: auto; /* Affiche la barre de défilement si nécessaire */
+}
+
+/* Style personnalisé pour la barre de défilement de la sidebar */
+.sidebar-nav::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar-nav::-webkit-scrollbar-track {
+    background: transparent;
+}
+.sidebar-nav::-webkit-scrollbar-thumb {
+    background: var(--sidebar-active-bg);
+    border-radius: 6px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.sidebar-title {
+    padding: 1rem 1.5rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--sidebar-title-text);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 0.95rem;
+    border-left: 3px solid transparent; /* Pour l'indicateur actif */
+}
+
+.sidebar-nav li a:hover {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-text-hover);
+    border-left-color: var(--primary-admin);
+}
+
+.sidebar-nav li.active > a {
+    background-color: var(--sidebar-active-bg);
+    color: var(--sidebar-text-hover);
+    font-weight: 500;
+    border-left-color: var(--primary-admin);
+}
+
+.sidebar-nav li a i {
+    font-size: 1.1rem;
+    margin-right: 1rem;
+    width: 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.sidebar-nav li a:hover i {
+    transform: scale(1.1);
+}
+
+.sidebar-footer {
+    flex-shrink: 0; /* Empêche le footer de se réduire */
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-footer a {
+    padding: 1.2rem 1.5rem !important; /* Un peu plus d'espace */
+}
+
+/* ==========================================================================
+   CONTENU PRINCIPAL & NAVBAR SUPÉRIEURE
+   ========================================================================== */
+.content-wrapper {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    padding: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--content-bg);
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+}
+
+.search-form .form-control {
+    border: none;
+    background: var(--admin-bg);
+    box-shadow: none !important;
+}
+
+.search-form .btn {
+    background: var(--admin-bg);
+    color: var(--text-muted);
+}
+
+.navbar-top .nav-icon {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.badge-number {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 0.6rem;
+    font-weight: bold;
+    line-height: 1;
+    padding: 3px 5px;
+}
+
+.nav-profile img {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+}
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    min-width: 280px;
+}
+
+/* --- NOTIFICATIONS DROPDOWN --- */
+.notifications {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background-color: var(--admin-bg);
+}
+
+.notification-item i.text-warning { color: var(--color-warning) !important; }
+.notification-item i.text-danger { color: var(--color-danger) !important; }
+.notification-item i.text-success { color: var(--color-success) !important; }
+.notification-item i.text-info { color: var(--primary-admin) !important; }
+
+.notification-item > i {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.notification-item div p {
+    margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+}
+
+.notification-item div small {
+    font-size: 0.75rem;
+}
+
+.notification-item .btn-mark-read {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.notification-item:hover .btn-mark-read {
+    opacity: 1;
+}
+
+.notification-item:hover .btn-mark-read:hover {
+    color: var(--primary-admin);
+}
+
+/* ==========================================================================
+   COMPOSANTS DE LA PAGE (Cartes, Blocs, Tableaux)
+   ========================================================================== */
+.page-header {
+    margin-bottom: 1.5rem;
+}
+
+.page-title {
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.page-lead {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Cartes de statistiques (KPIs) */
+.stat-card {
+    background: var(--content-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.stat-card .card-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-right: 1.5rem;
+}
+
+.stat-card .card-icon.bg-primary-light { background-color: var(--color-primary-light); color: var(--primary-admin); }
+.stat-card .card-icon.bg-success-light { background-color: var(--color-success-light); color: var(--color-success); }
+.stat-card .card-icon.bg-danger-light { background-color: var(--color-danger-light); color: var(--color-danger); }
+.stat-card .card-icon.bg-warning-light { background-color: var(--color-warning-light); color: var(--color-warning); }
+
+.stat-card h6 {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+}
+
+.stat-card h5 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Blocs de contenu génériques (pour graphiques, tableaux, etc.) */
+.content-block {
+    background: var(--content-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    height: 100%; /* Pour aligner les hauteurs dans une ligne */
+}
+
+.content-block-header h5 {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN (Pour les appareils mobiles)
+   ========================================================================== */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-260px); /* Cache la sidebar par défaut */
+    }
+    .sidebar.active {
+        transform: translateX(0); /* Affiche la sidebar quand elle a la classe .active */
+    }
+    .content-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+/* --- NOUVELLE STRUCTURE DU CONTENU --- */
+.main-panel {
+    margin-left: 260px; /* Espace pour la sidebar */
+    width: calc(100% - 260px);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: all 0.3s ease-in-out;
+}
+
+.content-wrapper {
+    padding: 1.5rem;
+    flex-grow: 1; /* S'assure que le contenu principal prend toute la hauteur disponible */
+}
+
+/* On retire la marge de la navbar pour qu'elle soit dans le flux de main-panel */
+.navbar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--content-bg);
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    /* On retire la marge du bas, car le padding du content-wrapper s'en chargera */
+    margin: 1.5rem 1.5rem 0 1.5rem; /* Marge en haut et sur les côtés, pas en bas */
+}
+
+
+/* --- RESPONSIVE DESIGN (mise à jour) --- */
+@media (max-width: 992px) {
+    .sidebar {
+        transform: translateX(-260px);
+    }
+    .sidebar.active {
+        transform: translateX(0);
+    }
+    /* On ajuste le main-panel au lieu du content-wrapper */
+    .main-panel {
+        margin-left: 0;
+        width: 100%;
+    }
+}

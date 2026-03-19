@@ -1,0 +1,13 @@
+#pendingTable tbody tr {
+    transition: background-color 0.2s ease-in-out;
+}
+.modal-body .list-group-item {
+    padding-left: 0;
+    padding-right: 0;
+}
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+}

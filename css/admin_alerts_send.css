@@ -1,0 +1,21 @@
+.alert-type-label {
+    cursor: pointer;
+}
+.alert-type-card {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.5rem;
+    border: 2px solid transparent;
+    transition: all 0.2s ease-in-out;
+}
+.alert-type-label input:checked + .alert-type-card {
+    border-color: var(--primary-admin);
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+    transform: translateY(-2px);
+}
+.alert-type-card i {
+    margin-right: 0.5rem;
+}
+.alert-type-card.bg-info-light { color: #06b6d4; }
+.alert-type-card.bg-danger-light { color: #ef4444; }
+.alert-type-card.bg-warning-light { color: #f59e0b; }
+.alert-type-card.bg-success-light { color: #10b981; }

@@ -1,0 +1,24 @@
+.table th {
+    font-weight: 600;
+}
+
+.time-since {
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* On peut ajouter une animation subtile pour attirer l'oeil sur les nouvelles déclarations */
+@keyframes fadeInRow {
+    from {
+        background-color: var(--color-warning-light);
+        opacity: 0;
+    }
+    to {
+        background-color: transparent;
+        opacity: 1;
+    }
+}
+
+.table tbody tr {
+    animation: fadeInRow 0.8s ease-in-out;
+}

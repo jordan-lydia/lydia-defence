@@ -1,0 +1,17 @@
+#logsTable {
+    font-size: 0.85rem;
+}
+#logsTable th {
+    font-weight: 600;
+    white-space: nowrap;
+}
+.action-message {
+    max-width: 400px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.action-message:hover {
+    white-space: normal;
+    overflow: visible;
+}

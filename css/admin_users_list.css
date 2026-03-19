@@ -1,0 +1,25 @@
+/* CSS spécifique pour la page admin_users_list.php */
+
+.table th {
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary-admin);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.table .badge {
+    font-size: 0.75rem;
+    padding: 0.4em 0.7em;
+}

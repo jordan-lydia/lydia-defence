@@ -1,0 +1,277 @@
+/* --- VARIABLES ET STYLE DE BASE --- */
+:root {
+    --primary-color: #00A79D; /* Un bleu-vert médical et moderne */
+    --secondary-color: #0d1a26;
+    --dark-bg: #030d16;
+    --light-text: #E0E0E0;
+    --dark-text: #333;
+    --glass-bg: rgba(13, 26, 38, 0.5);
+    --glass-border: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+/* --- STYLE DE LA BARRE DE DÉFILEMENT --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #00c4b7;
+}
+
+
+/* --- PARTICLES.JS EN FOND --- */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: var(--dark-bg);
+}
+
+/* --- BARRE DE NAVIGATION --- */
+.navbar {
+    transition: all 0.4s ease-in-out;
+    padding: 1.5rem 0;
+}
+
+.navbar.scrolled {
+    background-color: rgba(3, 13, 22, 0.85);
+    /* CORRECTION ICI */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    padding: 0.8rem 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #fff !important;
+}
+
+.navbar-brand i {
+    color: var(--primary-color);
+}
+
+.nav-link {
+    color: var(--light-text) !important;
+    position: relative;
+    padding: 0.5rem 1rem !important;
+    margin: 0 0.5rem;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 70%;
+}
+
+.btn-login {
+    border-width: 2px;
+    border-color: var(--primary-color);
+    color: var(--primary-color) !important;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: var(--primary-color);
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+
+/* --- SECTION HÉROS --- */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+    padding: 0 15px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 4.5rem); /* Taille de police responsive */
+    font-weight: 700;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    color: #fff;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    max-width: 700px;
+    margin: 1rem auto 0 auto;
+    color: var(--light-text);
+    font-weight: 300;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, var(--primary-color), #00c4b7);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0, 167, 157, 0.3);
+    transition: all 0.3s ease;
+}
+.btn-primary:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 25px rgba(0, 167, 157, 0.4);
+}
+
+/* --- STYLES GÉNÉRAUX DES SECTIONS --- */
+section {
+    position: relative;
+    z-index: 1;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+
+.section-lead {
+    font-size: 1.1rem;
+    color: var(--light-text);
+    font-weight: 300;
+}
+
+
+/* --- CARTES DE FONCTIONNALITÉS (Glassmorphism) --- */
+.feature-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    padding: 2.5rem;
+    text-align: center;
+    /* CORRECTION ICI */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    border-color: rgba(0, 167, 157, 0.5);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+
+/* --- STATISTIQUES D'IMPACT --- */
+#stats {
+    background-color: var(--secondary-color);
+}
+
+.stat-item i {
+    font-size: 3.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.stat-item h3 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* --- SECTION COMMENT ÇA MARCHE --- */
+.step-item {
+    padding: 2rem;
+}
+.step-number {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 0 auto 1.5rem auto;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 5px var(--primary-color);
+}
+
+.step-icon {
+    font-size: 4rem;
+    color: var(--light-text);
+    margin: 2rem 0;
+}
+
+/* --- PIED DE PAGE --- */
+footer {
+    background-color: var(--secondary-color);
+    position: relative;
+    z-index: 1;
+}
+
+/* --- MODAL DE CONNEXION --- */
+.modal-content {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--glass-border);
+    border-radius: 15px;
+    color: var(--light-text);
+    /* CORRECTION ICI */
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+}
+.modal-header {
+    border-bottom: 1px solid var(--glass-border);
+}
+.modal-footer {
+    border-top: 1px solid var(--glass-border);
+}
+.form-control {
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--light-text);
+}
+.form-control:focus {
+    background-color: var(--glass-bg);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(0, 167, 157, 0.25);
+    color: var(--light-text);
+}
+.input-group-text {
+    background-color: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--primary-color);
+}

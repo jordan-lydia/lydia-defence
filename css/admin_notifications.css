@@ -1,0 +1,13 @@
+.notification-entry {
+    transition: background-color 0.3s ease;
+}
+.notification-entry.unread {
+    background-color: #f8f9fa;
+    border-left: 4px solid var(--primary-admin);
+}
+.notification-icon {
+    font-size: 1.5rem;
+}
+.notification-entry .message {
+    font-weight: 500;
+}

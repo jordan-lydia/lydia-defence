@@ -1,0 +1,113 @@
+@import url('admin.css');
+
+:root {
+    --primary-admin: #0d47a1;
+}
+
+#map {
+    height: 600px;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    z-index: 1;
+}
+
+.legend {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    line-height: 18px;
+    color: #333;
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+}
+
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.8;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+/* --- Style pour les marqueurs clignotants --- */
+
+/* L'icône du marqueur personnalisé */
+.pulsing-icon {
+    background-color: #ff4136; /* Rouge vif pour l'alerte */
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    box-shadow: 0 0 0 rgba(255, 65, 54, 0.7);
+    animation: pulse 1.5s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    border: 2px solid white;
+}
+
+/* L'animation de pulsation */
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 65, 54, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 15px rgba(255, 65, 54, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 65, 54, 0);
+    }
+}
+
+/* --- Styles pour la page de consultation des rapports --- */
+
+.report-card-download {
+    background-color: var(--content-bg);
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    text-align: center;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+
+.report-card-download:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+
+.card-icon-report {
+    font-size: 3rem;
+    color: var(--primary-decideur, var(--primary-admin)); /* Utilise la couleur du décideur, ou celle de l'admin par défaut */
+    margin-bottom: 1rem;
+}
+
+.card-title-report {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.card-text-report {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    flex-grow: 1; /* Pousse le bouton vers le bas */
+    margin-bottom: 1.5rem;
+}
+
+.report-card-download .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
