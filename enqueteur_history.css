@@ -1,0 +1,43 @@
+/* Centrer les graphiques et la table */
+.main-panel .content-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+/* S'assurer que les blocs de contenu dans une ligne ont la même hauteur */
+.row > [class*='col-'] {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-block {
+    flex-grow: 1; /* Permet au bloc de prendre toute la hauteur de sa colonne */
+    display: flex;
+    flex-direction: column;
+}
+
+.content-block > div:not(.content-block-header) {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#historyTable th {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+#historyTable .badge {
+    font-size: 0.8rem;
+    padding: 0.4em 0.8em;
+}
+
+.no-data-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 250px;
+    color: var(--text-muted);
+}
